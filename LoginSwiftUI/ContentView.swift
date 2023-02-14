@@ -6,16 +6,81 @@
 //
 
 import SwiftUI
+import SwiftUISnackbar
+import AlertMessage
 
 struct ContentView: View {
+    @State private var username = ""
+    @State private var password = ""
+    @State private var showingLoginScreen = false
+    @State private var isActive = false
+    @State private var snackTitle = ""
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        
+        NavigationView{
+            
+            ZStack{
+                Color("baseColor")
+                    .ignoresSafeArea()
+                Circle()
+                    .scale(1.7)
+                    .foregroundColor(.white.opacity(0.15))
+                Circle()
+                    .scale(1.35)
+                    .foregroundColor(.white)
+                VStack{
+//                    Text("LOGIN")
+//                        .font(.largeTitle)
+//                        .bold()
+//                        .padding()
+//                        .lineLimit(1)
+                    Image(systemName: "pencil.and.outline")
+                        .resizable()
+                        .frame(width: 100, height: 100)
+                        .foregroundColor(Color("baseColor"))
+                        .padding(.bottom, 30)
+                    TextField("Username", text: $username)
+                        .padding()
+                        .frame(width: 300, height: 50)
+                        .background(Color.black.opacity(0.05))
+                        .cornerRadius(10)
+                    SecureField("Password", text: $password)
+                        .padding()
+                        .frame(width: 300, height: 50)
+                        .background(Color.black.opacity(0.05))
+                        .cornerRadius(10)
+                    
+                    Button("Login"){
+                        auth(username: username, password: password)
+                    }
+                    
+                    .foregroundColor(.white)
+                    .frame(width: 300, height: 50)
+                    .background(Color("baseColor"))
+                    .cornerRadius(10)
+                    
+                    NavigationLink(destination: HomeView(), isActive: $showingLoginScreen){
+                        EmptyView()
+                    }
+                }
+                
+                
+                .snackbar(isShowing: $isActive, title: snackTitle, style: .custom(Color.red))
+            }
         }
-        .padding()
+        .navigationBarHidden(true)
+    }
+    
+    func auth(username:String, password:String){
+        if(username.lowercased() == "admin" && password.lowercased() == "adminmaster"){
+            showingLoginScreen = true
+            isActive = false
+            snackTitle = "Welcome @\(username)"
+        }else{
+            isActive = true
+            snackTitle = "Wrong Username or Password !"
+        }
     }
 }
 
