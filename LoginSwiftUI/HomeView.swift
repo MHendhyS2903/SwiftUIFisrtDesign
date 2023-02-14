@@ -223,5 +223,45 @@ struct menu: View{
                 }
             }
         }
+        ZStack{
+            Rectangle()
+                .frame(height: 80)
+                .frame(maxWidth: .infinity)
+                .cornerRadius(radius: 25, corners: [.bottomLeft, .bottomRight])
+                .cornerRadius(radius: 5, corners: [.bottomLeft, .bottomRight])
+                .shadow(radius: 10)
+                .padding()
+                .foregroundColor(Color.white)
+            HStack{
+                VStack{
+                    Image("gopay")
+                        .resizable()
+                        .foregroundColor(Color("baseColor"))
+                        .frame(width: 30, height: 30)
+                        .frame(maxWidth: .infinity)
+                    Text("Gopay")
+                        .font(.system(size: 12))
+                }
+                VStack{
+                    Image("dana")
+                        .resizable()
+                        .foregroundColor(Color("baseColor"))
+                        .frame(width: 45, height: 30)
+                        .frame(maxWidth: .infinity)
+                    Text("Dana")
+                        .font(.system(size: 12))
+                }
+                VStack{
+                    Image("ovo")
+                        .resizable()
+                        .foregroundColor(Color("baseColor"))
+                        .frame(width: 30, height: 30)
+                        .frame(maxWidth: .infinity)
+                    Text("Ovo")
+                        .font(.system(size: 12))
+                }
+            }
+            .padding(.horizontal)
+        }
     }
 }
