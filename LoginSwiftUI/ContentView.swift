@@ -54,13 +54,13 @@ struct ContentView: View {
                     Button("Login"){
                         auth(username: username, password: password)
                     }
-                    
+                    .font(.system(size: 17, weight: .bold))
                     .foregroundColor(.white)
                     .frame(width: 300, height: 50)
-                    .background(Color("baseColor"))
+                    .background(Color.orange)
                     .cornerRadius(10)
                     
-                    NavigationLink(destination: HomeView(), isActive: $showingLoginScreen){
+                    NavigationLink(destination: BottomNavigationView(), isActive: $showingLoginScreen){
                         EmptyView()
                     }
                 }

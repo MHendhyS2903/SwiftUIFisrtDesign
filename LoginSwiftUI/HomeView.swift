@@ -11,7 +11,7 @@ struct HomeView: View {
     @State private var index = 0
     public let timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
         @State private var selection = 0
-    let images = ["ad","ads","ad","ads","bg"]
+    let images = ["ads1","ads2","ads3","ads4","ads5"]
     
     var body: some View {
         ScrollView{
@@ -52,14 +52,13 @@ struct HomeView: View {
                                 .resizable(resizingMode: .stretch)
                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                                 .padding(.horizontal)
-                                .cornerRadius(25)
+                                .cornerRadius(50)
                         }
                     }
                     .tabViewStyle(PageTabViewStyle())
                     .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
                     .onReceive(timer, perform: { _ in
                         withAnimation{
-//                            print("selection is",selection)
                             selection = selection < 5 ? selection + 1 : 0
                         }
                     })
@@ -89,34 +88,36 @@ struct balance: View {
                     .frame(maxWidth: .infinity)
                     .cornerRadius(5)
                     .padding(.leading, 10)
-                    .foregroundColor(Color("baseColor"))
+                    .foregroundColor(Color.cyan)
                 VStack{
                     Image(systemName: "creditcard")
                         .resizable()
                         .frame(width: 30, height: 19)
                         .foregroundColor(Color.white)
-                    Text("5.000.000")
+                    Text("Rp. 5.000.000")
                         .foregroundColor(Color.white)
                         .font(.system(size: 13, weight: .bold))
                 }
             }
+            .shadow(radius: 10)
             ZStack{
                 Rectangle()
                     .frame(height: 55)
                     .frame(maxWidth: .infinity)
                     .cornerRadius(5)
                     .padding(.trailing, 10)
-                    .foregroundColor(Color("baseColor"))
+                    .foregroundColor(Color.cyan)
                 VStack{
                     Image(systemName: "banknote")
                         .resizable()
                         .frame(width: 30, height: 19)
                         .foregroundColor(Color.white)
-                    Text("10.000.000")
+                    Text("Rp. 10.000.000")
                         .foregroundColor(Color.white)
                         .font(.system(size: 13, weight: .bold))
                 }
             }
+            .shadow(radius: 10)
         }
     }
 }
@@ -157,7 +158,7 @@ struct menu: View{
                         VStack{
                             Image(systemName: "iphone.gen1")
                                 .resizable()
-                                .foregroundColor(Color("baseColor"))
+                                .foregroundColor(Color.red)
                                 .frame(width: 20, height: 30)
                                 .frame(maxWidth: .infinity)
                             Text("Pulsa & Data")
@@ -166,7 +167,7 @@ struct menu: View{
                         VStack{
                             Image(systemName: "lightbulb.fill")
                                 .resizable()
-                                .foregroundColor(Color("baseColor"))
+                                .foregroundColor(Color("moneyColor"))
                                 .frame(width: 20, height: 30)
                                 .frame(maxWidth: .infinity)
                             Text("Electricity")
@@ -175,7 +176,7 @@ struct menu: View{
                         VStack{
                             Image(systemName: "cable.connector")
                                 .resizable()
-                                .foregroundColor(Color("baseColor"))
+                                .foregroundColor(Color.gray)
                                 .frame(width: 20, height: 30)
                                 .frame(maxWidth: .infinity)
                             Text("Internet")
@@ -187,7 +188,7 @@ struct menu: View{
                         VStack{
                             Image(systemName: "gamecontroller.fill")
                                 .resizable()
-                                .foregroundColor(Color("baseColor"))
+                                .foregroundColor(Color.purple)
                                 .frame(width: 35, height: 25)
                                 .frame(maxWidth: .infinity)
                             Text("Games")
@@ -196,7 +197,7 @@ struct menu: View{
                         VStack{
                             Image(systemName: "graduationcap.fill")
                                 .resizable()
-                                .foregroundColor(Color("baseColor"))
+                                .foregroundColor(Color.blue)
                                 .frame(width: 35, height: 25)
                                 .frame(maxWidth: .infinity)
                             Text("Education")
@@ -205,7 +206,7 @@ struct menu: View{
                         VStack{
                             Image(systemName: "cross.vial.fill")
                                 .resizable()
-                                .foregroundColor(Color("baseColor"))
+                                .foregroundColor(Color("medicineColor"))
                                 .frame(width: 20, height: 30)
                                 .frame(maxWidth: .infinity)
                             Text("Medicine")
