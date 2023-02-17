@@ -34,7 +34,7 @@ struct SettingView: View {
                                 .resizable()
                                 .frame(width: 20, height: 20)
                                 .clipShape(Circle())
-                                .foregroundColor(Color.blue)
+                                .foregroundColor(Color("baseColor"))
                             Text("Profile")
                                 .font(.subheadline)
                         }
@@ -45,7 +45,7 @@ struct SettingView: View {
                             .resizable()
                             .frame(width: 20, height: 20)
                             .clipShape(Circle())
-                            .foregroundColor(Color.blue)
+                            .foregroundColor(Color("baseColor"))
                         Text("Address")
                             .font(.subheadline)
                     }
@@ -55,7 +55,7 @@ struct SettingView: View {
                             .resizable()
                             .frame(width: 20, height: 20)
                             .clipShape(Circle())
-                            .foregroundColor(Color.blue)
+                            .foregroundColor(Color("baseColor"))
                         Text("Job")
                             .font(.subheadline)
                     }
@@ -70,6 +70,7 @@ struct SettingView: View {
                     .frame(maxWidth: .infinity)
                 }
             }
+            .background(Image("bg").resizable())
         }
         .ignoresSafeArea()
         .background(Color.blue)
